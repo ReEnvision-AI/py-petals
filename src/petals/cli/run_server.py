@@ -127,8 +127,8 @@ def main():
     group = parser.add_mutually_exclusive_group()
     group.add_argument('--initial_peers', type=str, nargs='+', required=False, default=PUBLIC_INITIAL_PEERS,
                        help='Multiaddrs of one or more DHT peers from the target swarm. Default: connects to the public swarm')
-    group.add_argument('--new_swarm', action='store_true',
-                       help='Start a new private swarm (i.e., do not connect to any initial peers)')
+    #group.add_argument('--new_swarm', action='store_true',
+    #                   help='Start a new private swarm (i.e., do not connect to any initial peers)')
 
     parser.add_argument('--increase_file_limit', type=int, default=4096,
                         help='On *nix, increase the max number of files a server can open '
@@ -203,8 +203,8 @@ def main():
         max_disk_space, (int, type(None))
     ), "Unrecognized value for --max_disk_space. Correct examples: 1.5GB or 1500MB or 1572864000 (bytes)"
 
-    if args.pop("new_swarm"):
-        args["initial_peers"] = []
+    #if args.pop("new_swarm"):
+    #    args["initial_peers"] = []
 
     quant_type = args.pop("quant_type")
     if quant_type is not None:
