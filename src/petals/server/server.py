@@ -155,7 +155,8 @@ class Server:
         else:
             logger.info(f"Connecting to a private swarm, initial peers: {initial_peers}")
         logger.info(f"Running a server on {visible_maddrs_str}")
-        self.should_validate_reachability = not skip_reachability_check and initial_peers == PUBLIC_INITIAL_PEERS
+        #self.should_validate_reachability = not skip_reachability_check and initial_peers == PUBLIC_INITIAL_PEERS
+        self.should_validate_reachability = False
 
         if device is None:
             if torch.cuda.is_available():
@@ -532,8 +533,8 @@ class ModuleContainer(threading.Thread):
 
             merge_inference_pools_inplace(blocks)
 
-            if should_validate_reachability:
-                validate_reachability(dht.peer_id)
+            #if should_validate_reachability:
+            #    validate_reachability(dht.peer_id)
         except:
             logger.debug("Shutting down backends")
             for backend in blocks.values():
