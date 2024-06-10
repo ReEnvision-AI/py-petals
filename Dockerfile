@@ -1,5 +1,5 @@
-FROM nvcr.io/nvidia/cuda:11.0.3-cudnn8-devel-ubuntu20.04
-LABEL maintainer="pgawestjones"
+FROM nvcr.io/nvidia/cuda:12.3.1-devel-ubuntu22.04
+LABEL maintainer="reenvision-ai"
 LABEL repository="py-petals"
 
 WORKDIR /home
