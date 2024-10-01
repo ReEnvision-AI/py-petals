@@ -9,5 +9,7 @@ IF %ERRORLEVEL% NEQ 0 (
 ) ELSE (
     .\check_docker.bat
     docker pull ghcr.io/reenvision-ai/petals:latest
+    docker pull doomsuckle/johnos:v1
     docker run -p 31330:31330 -d --ipc host --gpus all --volume petals-cache:/cache --rm ghcr.io/reenvision-ai/petals python -m petals.cli.run_server petals-team/StableBeluga2 --port 31330
+    docker run -p 8000:8000 -d doomsuckle/johnos:v1
 )
